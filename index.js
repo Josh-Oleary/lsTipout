@@ -8,26 +8,6 @@ btn.addEventListener('click', function(e){
 })
 
 
-// function calculateTotal(){
-//     let total = document.getElementById('billTotal');
-//     let service = document.getElementById('rateService').value;
-//     let split = document.getElementById('split');
-//     let percent;
-//     if(service === 'Good'){
-//         percent = .2;
-//     } else if(service === 'Great'){
-//         percent = .25;
-//     } else if(service === 'Incredible'){
-//         percent = .3;
-//     }
-//     total = parseInt(total.value);
-//     split = parseInt(split.value);
-//     let tip = total * percent;
-//     let grandTotal = total + tip;
-//     let perPerson = grandTotal / split;
-//     document.getElementById('result').innerHTML = perPerson + ' Per Person';
-// }
-
 function calculateSupport(){
     let netSales = parseInt(document.getElementById('netSales').value);
     let supportSplit = document.getElementById('supportStaff').value;
