@@ -35,7 +35,7 @@ function calculateSupport(){
     let hostResult = document.getElementById('hostResults');
     let busserOneResult = document.getElementById('busserOneResult');
     let busserTwoResult = document.getElementById('busserTwoResult');
-    if(supportSplit === 'oneHost'){
+    if(supportSplit === 'oneHost' && netSales){
         hostTip = Math.round(netSales * .01);
         hostResult.innerHTML = 'Host: $' + hostTip; 
     } else if (supportSplit === 'oneHostOneBus'){
@@ -55,7 +55,7 @@ function calculateSupport(){
 function calculateBar(){
     let barSales = parseInt(document.getElementById('barSales').value)
     let numOfBartenders = parseInt(document.getElementById('numOfBartenders').value);
-    let barTipout = barSales * .05;
+    let barTipout = Math.round(barSales * .05);
     let barResult = document.getElementById('barResult');
     if(numOfBartenders === 1){
         barResult.innerHTML = 'Bartender: $' + barTipout;
