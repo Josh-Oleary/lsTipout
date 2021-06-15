@@ -5,31 +5,37 @@ btn.addEventListener('click', function(e){
     e.preventDefault();
     calculateSupport();
     calculateBar();
+    calculateTotal();
 })
 
 
 function calculateSupport(){
     let netSales = parseInt(document.getElementById('netSales').value);
     let supportSplit = document.getElementById('supportStaff').value;
-    let hostTip, busserOneTip, busserTwoTip;
+    let hostTip, busserOneTip;
     let hostResult = document.getElementById('hostResults');
     let busserOneResult = document.getElementById('busserOneResult');
     let busserTwoResult = document.getElementById('busserTwoResult');
+    var supportTipout;
     if(supportSplit === 'oneHost' && netSales){
         hostTip = Math.round(netSales * .01);
-        hostResult.innerHTML = 'Host: $' + hostTip; 
+        hostResult.innerHTML = 'Host: $' + hostTip;
+        supportTipout = hostTip;
     } else if (supportSplit === 'oneHostOneBus'){
         hostTip = Math.round(netSales * .0075);
         busserOneTip = Math.round(netSales * .0075);
         hostResult.innerHTML = 'Host: $' + hostTip;
         busserOneResult.innerHTML = 'Busser 1: $' + busserOneTip;
+        supportTipout = hostTip + busserOneTip;
     } else if (supportSplit === 'oneHostTwoBus'){
         hostTip = Math.round(netSales * .0075);
         busserTip = Math.round(netSales * .005);
         hostResult.innerHTML = 'Host: $' + hostTip;
         busserOneResult.innerHTML = 'Busser 1: $' + busserTip;
         busserTwoResult.innerHTML = 'Busser 2: $' + busserTip;
+        supportTipout = hostTip + (busserTip * 2);
     }
+    return supportTipout;
 }
 
 function calculateBar(){
@@ -42,4 +48,13 @@ function calculateBar(){
     } else if (numOfBartenders === 2){
         barResult.innerHTML = `\$${barTipout / 2} per Bartender`
     }
+    return barTipout;
+}
+
+    async function calculateTotal(){
+    const supportTip = await calculateSupport();
+    const barTip = await calculateBar();
+    let totalTipout = supportTip + barTip;
+    let totalDisplay = document.getElementById('totalTipout');
+    totalDisplay.innerHTML = 'Total Tipout: $' + totalTipout;
 }
