@@ -3,9 +3,11 @@ const btn = document.getElementById('calculate');
 
 btn.addEventListener('click', function(e){
     e.preventDefault();
+    clearResults();
     calculateSupport();
     calculateBar();
     calculateTotal();
+    
 })
 
 
@@ -57,4 +59,17 @@ function calculateBar(){
     let totalTipout = supportTip + barTip;
     let totalDisplay = document.getElementById('totalTipout');
     totalDisplay.innerHTML = 'Total Tipout: $' + totalTipout;
+}
+
+function clearResults(){
+    let totalDisplay = document.getElementById('totalTipout');
+    let barResult = document.getElementById('barResult');
+    let hostResult = document.getElementById('hostResults');
+    let busserOneResult = document.getElementById('busserOneResult');
+    let busserTwoResult = document.getElementById('busserTwoResult');
+    totalDisplay.innerHTML = '';
+    barResult.innerHTML = '';
+    hostResult.innerHTML = '';
+    busserOneResult.innerHTML = '';
+    busserTwoResult.innerHTML = '';
 }
