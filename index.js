@@ -6,6 +6,7 @@ btn.addEventListener('click', function(e){
     clearResults();
     calculateSupport();
     calculateBar();
+    calculateRunner();
     calculateTotal();
     
 })
@@ -18,6 +19,7 @@ function calculateSupport(){
     let hostResult = document.getElementById('hostResults');
     let busserOneResult = document.getElementById('busserOneResult');
     let busserTwoResult = document.getElementById('busserTwoResult');
+    let preBusSales = parseInt(document.getElementById('preBusSales').value);
     var supportTipout;
     if(supportSplit === 'oneHost' && netSales){
         hostTip = Math.round(netSales * .01);
@@ -25,7 +27,7 @@ function calculateSupport(){
         supportTipout = hostTip;
     } else if (supportSplit === 'oneHostOneBus'){
         hostTip = Math.round(netSales * .0075);
-        busserOneTip = Math.round(netSales * .0075);
+        busserOneTip = Math.round((netSales - preBusSales) * .0075);
         hostResult.innerHTML = 'Host: $' + hostTip;
         busserOneResult.innerHTML = 'Busser 1: $' + busserOneTip;
         supportTipout = hostTip + busserOneTip;
@@ -53,11 +55,22 @@ function calculateBar(){
     return barTipout;
 }
 
-    async function calculateTotal(){
+function calculateRunner(){
+    let foodRunnerTip = parseInt(Math.ceil(document.getElementById('foodRunnerHours').value));
+    let foodRunnerDisplay = document.getElementById('foodRunnerResults');
+    foodRunnerDisplay.innerHTML = 'Food Runner: $' + foodRunnerTip;
+    return foodRunnerTip;
+}
+
+async function calculateTotal(){
+    
     const supportTip = await calculateSupport();
     const barTip = await calculateBar();
-    let totalTipout = supportTip + barTip;
+    const foodRunnerTip = await calculateRunner();
+    let totalTipout = supportTip + barTip + foodRunnerTip;
+    
     let totalDisplay = document.getElementById('totalTipout');
+    
     totalDisplay.innerHTML = 'Total Tipout: $' + totalTipout;
 }
 

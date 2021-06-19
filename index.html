@@ -13,14 +13,18 @@
     <form action="">
         <h3>Tipout Calculator</h3>
         <div id="supportSection">
-            <label for="netSales">Net Sales</label>
+            <label for="netSales">Net Sales</label><br>
             <span>$</span><input type="number" id="netSales">
+            <br>
+            <label for="preBusSales">Pre-busser Sales</label><br>
+            <span>$</span><input type="number" id="preBusSales" name="preBusSales">
             <label for="supportStaff">Support Staff</label>
             <select name="supportStaff" id="supportStaff">
                 <option value="oneHost">1 Host</option>
                 <option value="oneHostOneBus">1 Host 1 Busser</option>
                 <option value="oneHostTwoBus">1 Host 2 Bussers</option>
             </select>
+            
         </div>
         <div id="barSection">
             <label for="barSales="number">Bar Sales</label>
@@ -28,6 +32,10 @@
             <label for="numOfBartenders"><br># of Bartender(s)</label>
             <input type="number" id="numOfBartenders">
 
+        </div>
+        <div id="foodRunner">
+            <label for="foodRunnerHours">Food Runner Hours</label>
+            <input type="number" id="foodRunnerHours">
         </div>
         <button id="calculate">Calculate</button>
         <button>Clear</button>
@@ -40,6 +48,9 @@
         </div>
         <div class="barResult">
             <p id="barResult"></p>
+        </div>
+        <div class="foodRunnerResult">
+            <p id="foodRunnerResults"></p>
         </div>
         <div class="totalResults">
             <p id="totalTipout"></p>
