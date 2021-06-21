@@ -27,7 +27,11 @@ function calculateSupport(){
         supportTipout = hostTip;
     } else if (supportSplit === 'oneHostOneBus'){
         hostTip = Math.round(netSales * .0075);
+        if(preBusSales){
         busserOneTip = Math.round((netSales - preBusSales) * .0075);
+        } else {
+            busserOneTip = Math.round(netSales * .0075);
+        }
         hostResult.innerHTML = 'Host: $' + hostTip;
         busserOneResult.innerHTML = 'Busser 1: $' + busserOneTip;
         supportTipout = hostTip + busserOneTip;
@@ -68,7 +72,6 @@ async function calculateTotal(){
     const barTip = await calculateBar();
     const foodRunnerTip = await calculateRunner();
     let totalTipout = supportTip + barTip + foodRunnerTip;
-    
     let totalDisplay = document.getElementById('totalTipout');
     
     totalDisplay.innerHTML = 'Total Tipout: $' + totalTipout;
