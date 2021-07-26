@@ -43,3 +43,24 @@ input[type=number] {
 	background-color: black;
 	font-size: medium;
 }
+#foodRunner {
+	grid-column-start: 2;
+	transform: translateY(-2em)
+}
+.supportLabel {
+	
+@media screen 
+	and (min-width: 688px) {
+		form {
+			width: 32vw;
+			padding: 1em;
+			height: 50vh;
+		}
+		button {
+			width: 6em;
+			margin: auto;
+			margin-bottom: .2em;
+			
+		}
+		
+	}
