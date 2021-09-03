@@ -65,3 +65,10 @@ input[type=number] {
 		}
 		
 	}
+	@media screen 
+		and (min-width: 900px)
+		and (max-width: 1600px) {
+			form {
+				width: 40%;
+			}
+		}
