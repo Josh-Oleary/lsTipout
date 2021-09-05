@@ -69,6 +69,7 @@ input[type=number] {
 		and (min-width: 900px)
 		and (max-width: 1600px) {
 			form {
-				width: 40%;
+				width: 30%;
+				height: 60vh;
 			}
 		}
