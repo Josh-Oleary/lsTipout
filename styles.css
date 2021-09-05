@@ -50,6 +50,15 @@ input[type=number] {
 	background-color: black;
 	font-size: medium;
 }
+<<<<<<< HEAD
+=======
+#foodRunner {
+	grid-column-start: 2;
+	transform: translateY(-2em)
+}
+.supportLabel {
+	
+>>>>>>> f784b45c2b60f9d2619d538cd21aae733c71823e
 @media screen 
 	and (min-width: 688px) {
 		form {
@@ -65,6 +74,7 @@ input[type=number] {
 		}
 		
 	}
+<<<<<<< HEAD
 	@media screen 
 		and (min-width: 900px)
 		and (max-width: 1600px) {
@@ -73,3 +83,5 @@ input[type=number] {
 				height: 60vh;
 			}
 		}
+=======
+>>>>>>> f784b45c2b60f9d2619d538cd21aae733c71823e
